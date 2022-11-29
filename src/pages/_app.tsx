@@ -1,6 +1,20 @@
+import { AppProps } from "next/app"
+import { globalStyles } from "../styles/global"
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+globalStyles();
+
+import logoImg from '../assets/logo-shop.svg'
+
+export default function App ({ Component, pageProps }: AppProps) {
+
+  return (
+    <div>
+      <img src={logoImg.src} alt="" />
+
+      <Component {...pageProps} />
+    </div>
+  )
 }
 
-export default MyApp
+
+// todas as paginas estao carregando esse app => ele funciona como um wrapper
