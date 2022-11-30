@@ -35,7 +35,6 @@ export default function Home({ products }: HomeProps) {
             <footer>
               <strong>{product.name}</strong>
               <span>{product.price}</span>
-              {/* a formatacao do preço tambpem pode ser colocado aqui, o que gasta mais processamento pois recarrega toda vez que o projeto inicia */}
             </footer>
           </Product>
         )
@@ -46,7 +45,7 @@ export default function Home({ products }: HomeProps) {
   )
 }
 
-// essas quisições com ges sao condicionais e nao devem ser feitas em todos os momentos. Na maioria dos casos serão usados useEfect
+/
 export const getStaticProps: GetStaticProps = async () => {
   const response = await stripe.products.list({
     expand: ['data.default_price'] //quando é um lista,sempre data antes
@@ -59,11 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(price.unit_amount / 100),
-      // a formatacao do preço pode ser colocado aqui, o que gasta menos processamento pois recarrega a cada duas horas
+      price: price.unit_amount / 100,
     }
   })
 
@@ -76,4 +71,4 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 // meotodo getserversideprodps :  consigo ter acesso ao contexto da requisição
-// quando eu migro para getstatics nao se tem mais acesso pois esse só roda quando o next cria uma versao statica daquela pagina //npm run build, ou seja se em algum momento essa página precisar de informações especíoficaas para cada usuáriop ela nao pode ser static pois deve ser igual a todos os users pq statis nao acessa contexto
+// quando eu migro para getstatics nao se tem mais acesso pois esse só roda quando o next cria uma versao statica daquela pagina //npm run build

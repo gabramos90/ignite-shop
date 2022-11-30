@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       products,
     },
-    revalidate: 60 * 60 * 2, // a cada 2 horas o next recria o cache usando o acesso de outro usuário
+    revalidate: 1, // a cada 2 horas o next recria o cache usando o acesso de outro usuário
   }
 }
 

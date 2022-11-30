@@ -59,10 +59,7 @@ export const getStaticProps: GetStaticProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(price.unit_amount / 100),
+      price: 
       // a formatacao do preço pode ser colocado aqui, o que gasta menos processamento pois recarrega a cada duas horas
     }
   })

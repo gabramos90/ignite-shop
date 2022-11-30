@@ -3,9 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    domains:[
+    domains: {
       'files.stripe.com'
-    ]
+    
   },
 }
 
