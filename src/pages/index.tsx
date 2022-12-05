@@ -2,6 +2,7 @@ import { HomeContainer, Product } from '../styles/pages/home'
 import { useKeenSlider } from 'keen-slider/react'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
+import Head from 'next/head'
 
 import Image from 'next/image'
 
@@ -15,7 +16,7 @@ interface HomeProps {
     id: string
     name: string
     imageUrl: string
-    price: number
+    price: string
   }[] // esse colchete no final indica que essa interface é de array
 }
 
@@ -28,10 +29,18 @@ export default function Home({ products }: HomeProps) {
   })
 
   return (
+    <>
+    <Head>
+      <title>Home Ignit Shop</title>
+    </Head>
+
     <HomeContainer ref={sliderRef} className="keen-slider">
+      <Head>
+        <title>Ignite Shop</title>
+      </Head>
       {products.map(product => {
         return (
-          <Link href={`/product/${product.id}`}  key={product.id} > {/* ele recebe a key pois é o primeiro elemento do map */} 
+          <Link href={`/product/${product.id}`}  key={product.id} prefetch={false}> {/* ele recebe a key pois é o primeiro elemento do map */} {/* prefet false faz com m que o link só carregue no hover */}
             <Product 
               className='keen-slider__slide'
             >
@@ -45,9 +54,8 @@ export default function Home({ products }: HomeProps) {
           </Link>
         )
       })}
-
-
     </HomeContainer>
+    </>
   )
 }
 

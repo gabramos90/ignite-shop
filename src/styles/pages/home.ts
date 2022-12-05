@@ -8,7 +8,7 @@ export const HomeContainer = styled('main', {
 });
 
 
-export const Product = styled('a', {
+export const Product = styled('div', {
     backgroundColor: 'blue',
     borderRadius: '8px',
     cursor:'pointer',

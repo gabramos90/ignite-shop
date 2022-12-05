@@ -6,3 +6,5 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
         name: 'Ignite Shop',
     }
 })
+
+//http:localhost/3000/api/stripe

@@ -7,6 +7,8 @@ const nextConfig = {
       'files.stripe.com'
     ]
   },
+
 }
+
 
 module.exports = nextConfig
